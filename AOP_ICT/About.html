@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - CV Siswa</title>
+<link rel="icon" type="image/x-icon" href="favicon.png.png"/>
+    <link rel="icon" type="image/png" href="favicon.png.png"/>
+
+<link rel="stylesheet" href="Style-About.css">
+</head>
+
+<body>
+
+<header>
+<div class="logo">CV - Vincentius Adrian Moningka</div>
+<nav>
+<a href="Home.html">Home</a>
+<a href="About.html" class="active">Tentang</a>
+</nav>
+</header>
+
+<section class="about fade-in">
+
+<h1 class="neon-text">Tentang Saya</h1>
+
+<p>
+Saya memiliki dua minat yang saya sukai, yaitu dalam bidang olahraga dan juga permesinan. saya juga punya favorit lagu yaitu puting beliung bisa di klik di pojok kanan bawah.
+</p>
+
+<div class="hobby-container">
+
+<div class="card">
+<img src="basket1.jpg" alt="Basket">
+<div class="overlay">🏀 Basket</div>
+</div>
+
+<div class="card">
+<img src="motor.jpg" alt="Motor">
+<div class="overlay">🏍️ Motor</div>
+</div>
+
+</div>
+
+
+<!-- ===== SECTION CARD BAWAH ===== -->
+
+<div class="info-section fade-in">
+
+<!-- SMA TUJUAN -->
+<div class="school-card">
+
+<h2>🏫 SMA Tujuan</h2>
+
+<a href="https://www.santa-laurensia.com/" target="_blank">
+<img src="logo.jpg" class="school-logo">
+</a>
+
+<h3>Santa Laurensia</h3>
+
+<p>Sekolah Santa Laurensia</p>
+
+<a href="https://www.santa-laurensia.com/" target="_blank" class="school-btn">
+Klik untuk melihat website →
+</a>
+
+</div>
+
+
+<!-- MAKANAN & MINUMAN FAVORIT -->
+
+<div class="food-card">
+
+<h2>🍔 Makanan & Minuman Favorit</h2>
+
+<div class="food-container">
+
+<div class="food">
+<img src="babi.jpg" alt="Makanan Favorit">
+<div class="food-text">Babi guling</div>
+</div>
+
+<div class="food">
+<img src="cafe.jpg" alt="Minuman Favorit">
+<div class="food-text">Kopi Latte</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ===== MUSIC PLAYER ===== -->
+
+<div class="music-player" onclick="toggleMusic()">
+<span id="music-icon">▶</span>
+</div>
+
+<audio id="bg-music" loop>
+<source src="Puting Beliung.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- ===== QUOTES PALING BAWAH ===== -->
+
+<footer class="quotes-section">
+<div class="quote-line"></div>
+<p class="quote-text">"Dream big, work hard, stay humble."</p>
+</footer>
+
+
+<script>
+const music = document.getElementById("bg-music");
+const icon = document.getElementById("music-icon");
+const player = document.querySelector(".music-player");
+
+function toggleMusic(){
+
+if(music.paused){
+music.play();
+icon.innerHTML = "⏸";
+player.classList.add("playing");
+}
+else{
+music.pause();
+icon.innerHTML = "▶";
+player.classList.remove("playing");
+}
+
+}
+</script>
+
+</body>
+</html>

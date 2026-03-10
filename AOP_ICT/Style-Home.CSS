@@ -1,0 +1,276 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* SMOOTH SCROLL */
+html{
+    scroll-behavior:smooth;
+}
+
+/* BODY */
+body{
+    background: linear-gradient(135deg,#2E1A47,#0F3D3E);
+    color:white;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+    position:sticky;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    background:#1B102B;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00bfff;
+}
+
+nav a.active{
+    color:#00bfff;
+    font-weight:bold;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:80px 20px;
+}
+
+.hero-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:60px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.profile-image img{
+    width:170px;
+    height:170px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #00bfff;
+    box-shadow:
+        0 0 15px #00bfff,
+        0 0 35px rgba(0,191,255,0.4);
+    transition:0.4s;
+}
+
+.profile-image img:hover{
+    transform:scale(1.08);
+}
+
+.hero-text{
+    text-align:left;
+    max-width:600px;
+}
+
+.hero-text h2{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.hero-text p{
+    line-height:1.6;
+    margin-bottom:15px;
+    color:#dddddd;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 30px;
+    background:linear-gradient(45deg,#00bfff,#00f5d4);
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,191,255,0.5);
+}
+
+/* ================= GALLERY PREMIUM ================= */
+
+.gallery{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.gallery-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    perspective:1200px; /* efek 3D */
+}
+
+.card{
+    position:relative;
+    border-radius:25px;
+    overflow:hidden;
+    transition:all 0.5s ease;
+    transform-style:preserve-3d;
+    cursor:pointer;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+}
+
+.card img{
+    width:250px;
+    height:300px;
+    object-fit:cover;
+    display:block;
+    transition:all 0.5s ease;
+}
+
+/* Hover 3D Floating */
+.card:hover{
+    transform:rotateY(10deg) rotateX(5deg) scale(1.08) translateY(-15px);
+    box-shadow:
+        0 30px 60px rgba(0,191,255,0.6),
+        0 0 40px rgba(0,191,255,0.4);
+}
+
+/* Glow Border */
+.card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:25px;
+    padding:3px;
+    background:linear-gradient(45deg,#00bfff,#00f5d4,#00bfff);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+            mask-composite:exclude;
+    opacity:0;
+    transition:0.5s;
+}
+
+.card:hover::after{
+    opacity:1;
+}
+
+/* Shine Effect */
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+    transition:0.7s;
+}
+
+.card:hover::before{
+    left:100%;
+}
+
+/* Klik / HP Effect */
+.card:active{
+    transform:scale(1.15) translateY(-20px);
+    box-shadow:0 40px 80px rgba(0,191,255,0.8);
+}
+
+/* ================= FADE IN ================= */
+
+.fade-in{
+    animation:fadeUp 2s ease forwards;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    header{
+        padding:15px 20px;
+    }
+
+    .hero-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-text{
+        text-align:center;
+    }
+
+    .profile-image img{
+        width:140px;
+        height:140px;
+    }
+
+    .card img{
+        width:200px;
+        height:250px;
+    }
+}
+.neon-text{
+color:#00f5d4;
+
+text-shadow:
+0 0 5px #00f5d4,
+0 0 10px #00f5d4,
+0 0 20px #00f5d4,
+0 0 40px #00bfff,
+0 0 80px #00bfff;
+
+animation: neonGlow 2s infinite alternate;
+}
+
+@keyframes neonGlow{
+from{
+text-shadow:
+0 0 5px #00f5d4,
+0 0 10px #00f5d4,
+0 0 20px #00f5d4,
+0 0 40px #00bfff;
+}
+
+to{
+text-shadow:
+0 0 10px #00f5d4,
+0 0 20px #00f5d4,
+0 0 40px #00bfff,
+0 0 80px #00bfff;
+}
+}
